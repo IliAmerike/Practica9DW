@@ -1,0 +1,21 @@
+
+name: 01 - Mi primer workflow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  saludo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje propio
+        run: echo "¡Hola! Este es mi mensaje personalizado en GitHub Actions"
+      - name: Verificar versión de Node
+        run: node --version
+      - name: Mostrar contexto básico
+        run: echo "Evento=$GITHUB_EVENT_NAME Rama=$GITHUB_REF_NAME"
